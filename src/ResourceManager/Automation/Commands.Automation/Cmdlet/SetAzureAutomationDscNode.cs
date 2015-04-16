@@ -46,14 +46,14 @@ namespace Microsoft.Azure.Commands.Automation.Cmdlet
         /// <summary>
         /// Gets or sets the nodeconfiguration name.
         /// </summary>
-        [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true, HelpMessage = "The nodeconfiguration name.")]
+        [Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true, HelpMessage = "The node configuration name.")]
         [ValidateNotNullOrEmpty]
         public string NodeConfigurationName { get; set; }
 
         /// <summary>
         /// Gets or sets switch parameter to confirm overwriting of existing nodeconfigurations.
         /// </summary>
-        [Parameter(Mandatory = false, HelpMessage = "Overwrites an existing nodeconfiguration with same name.")]
+        [Parameter(Mandatory = false, HelpMessage = "Forces the command to run without asking for user confirmation.")]
         public SwitchParameter Force
         {
             get { return this.overwriteExistingNodeConfiguration; }

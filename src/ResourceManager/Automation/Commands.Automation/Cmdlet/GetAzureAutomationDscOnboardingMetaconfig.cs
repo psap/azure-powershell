@@ -40,15 +40,15 @@ namespace Microsoft.Azure.Commands.Automation.Cmdlet
         /// <summary>
         /// Gets or sets the output folder for the metaconfig mof files
         /// </summary>
-        [Parameter(Mandatory = false, ValueFromPipelineByPropertyName = true, HelpMessage = "The folder where metaconfig mof files to be placed.")]
+        [Parameter(Mandatory = false, ValueFromPipelineByPropertyName = true, HelpMessage = "The folder where metaconfig mof folder to be placed.")]
         public string OutputFolder { get; set; }
 
         /// <summary>
         /// Gets or sets the list of computer names
         /// </summary>
-        [Parameter(Mandatory = false, ValueFromPipelineByPropertyName = true, HelpMessage = "The names of computers. If not specified Localhost will be used.")]
+        [Parameter(Mandatory = false, ValueFromPipelineByPropertyName = true, HelpMessage = "The names of computers to generate a metaconfig mof for. If not specified localhost will be used.")]
         [Alias("ComputerName")]
-        public string[] ComputerNames { get; set; }
+        public string[] ComputerName { get; set; }
 
         /// <summary>
         /// Gets or sets switch parameter to confirm overwriting of existing configurations.
@@ -67,7 +67,7 @@ namespace Microsoft.Azure.Commands.Automation.Cmdlet
         public override void ExecuteCmdlet()
         {
             var ret = 
-                this.AutomationClient.GetDscMetaConfig(this.ResourceGroupName, this.AutomationAccountName, this.OutputFolder, this.ComputerNames, this.Force);
+                this.AutomationClient.GetDscMetaConfig(this.ResourceGroupName, this.AutomationAccountName, this.OutputFolder, this.ComputerName, this.Force);
 
             this.WriteObject(ret, true);
         }
